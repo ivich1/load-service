@@ -11,7 +11,7 @@ import java.time.LocalDateTime;
 
 public class FileLoger {
 
-    BufferedWriter writer;
+    private BufferedWriter writer;
     private static FileLoger instance;
 
     private FileLoger(){
@@ -31,7 +31,7 @@ public class FileLoger {
     @SneakyThrows
     public void info(String logInfo){
         writer.append( LocalDateTime.now() + " " + logInfo + "\n");
-        System.out.print(LocalDateTime.now()  + " " + logInfo + "\n");
+        System.out.print(LocalDateTime.now() + " " + logInfo + "\n");
     }
 
     @SneakyThrows

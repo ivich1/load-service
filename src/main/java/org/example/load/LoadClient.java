@@ -88,7 +88,6 @@ public class LoadClient implements Runnable {
     @SneakyThrows
     public void sendAllRandom(){
         for(int i = 0; i < requestCount; i++){
-
             request = HttpRequest.newBuilder()
                     .uri(URI.create(this.urlPool.get(random.nextInt(this.urlPool.size() -1))))
                     .build();
@@ -105,7 +104,7 @@ public class LoadClient implements Runnable {
 
     private String prepareLogInfo(int requestId, TimeInfo timeInfo, long absoluteTime){
         if(timeInfo.getBackendWorkTime() == null || timeInfo.getDbWorkTime() == null){
-            return "Client " + this.id + " send " + requestId + " requests;" + " no info about working time";
+            return "Client " + this.id + " send " + requestId + " requests;" + " no info about working time" + "; absolute time " + absoluteTime;
         }
         else{
             return "Client " + this.id + " send " + requestId + " requests; send time: " + System.currentTimeMillis() + "; "
